@@ -1,0 +1,124 @@
+/* Google font */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+
+/* color palette as custom properties */
+:root {
+  --blue:   rgba(79, 192, 210, 1);
+  --green:  rgba(82, 210, 154, 1);
+  --yellow: rgba(231, 196, 104, 0.7);
+  --orange: rgba(235, 118, 85, 1);
+  --red:    rgba(235, 85, 85, 1);
+  --dark-bg:  rgba(0, 0, 0, 0.9);
+  --light-bg: rgba(255, 255, 255, 0.08);
+  --text:     rgba(255, 255, 255, 0.9);
+}
+
+/* page background & font */
+body {
+  background: var(--dark-bg);
+  font-family: "Open Sans", sans-serif;
+}
+
+/* outer container to center & cap width */
+.wrapper {
+  max-width: 1000px;
+  margin: 20px auto 100px;
+  padding: 0;
+  background: var(--light-bg);
+  color: var(--text);
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+/* table basics */
+.tasks-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tasks-table thead th {
+  text-align: left;
+  padding: 15px 13px;
+  background: var(--dark-bg);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.tasks-table tbody td {
+  padding: 10px 13px;
+  font-size: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* zebra stripes + hover */
+.tasks-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.tasks-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transition: background 0.2s ease-out;
+}
+
+/* action-button styling */
+.btn {
+  border: 0;
+  padding: 6px 10px;
+  margin-right: 6px;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text);
+  background: none;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* colour accents */
+.blue   { color: var(--blue);   }
+.green  { color: var(--green);  }
+.orange { color: var(--orange); }
+.red    { color: var(--red);    }
+
+/* make the actions column wrap nicely on small screens */
+.actions-cell {
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .tasks-table thead {
+    display: none; /* collapse header */
+  }
+
+  .tasks-table,
+  .tasks-table tbody,
+  .tasks-table tr,
+  .tasks-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .tasks-table tr {
+    margin-bottom: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+  }
+
+  .tasks-table td {
+    padding: 10px 14px;
+    position: relative;
+  }
+
+  /* add pseudo-labels for mobile */
+  .tasks-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    width: 80px;
+    display: inline-block;
+    color: var(--yellow);
+  }
+}

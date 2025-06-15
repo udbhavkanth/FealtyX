@@ -1,0 +1,173 @@
+/* src/pages/Auth.css */
+@import url("https://rsms.me/inter/inter-ui.css");
+
+/* highlight text selection */
+::selection,
+::-webkit-selection,
+::-moz-selection {
+  background: #2d2f36;
+}
+
+/* basic page frame */
+body {
+  background: #ffffff;
+  font-family: "Inter UI", sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.page {
+  background: #e2e2e5;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 40px);
+  position: absolute;
+  place-content: center;
+  width: calc(100% - 40px);
+}
+
+@media (max-width: 767px) {
+  .page {
+    height: auto;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.container {
+  display: flex;
+  height: 320px;
+  margin: 0 auto;
+  width: 640px;
+}
+
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    height: 630px;
+    width: 320px;
+  }
+}
+
+/* ----- left side ----- */
+.left {
+  background: #ffffff;
+  height: calc(100% - 40px);
+  position: relative;
+  top: 20px;
+  width: 50%;
+}
+
+@media (max-width: 767px) {
+  .left {
+    height: 100%;
+    left: 20px;
+    max-height: 270px;
+    width: calc(100% - 40px);
+  }
+}
+
+.login {
+  font-size: 50px;
+  font-weight: 900;
+  margin: 50px 40px 40px;
+}
+
+.eula {
+  color: #999999;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 40px;
+}
+
+/* ----- right side ----- */
+.right {
+  background: #474a59;
+  box-shadow: 0 0 40px 16px rgba(0, 0, 0, 0.22);
+  color: #f1f1f2;
+  position: relative;
+  width: 50%;
+}
+
+@media (max-width: 767px) {
+  .right {
+    flex-shrink: 0;
+    height: 100%;
+    max-height: 350px;
+    width: 100%;
+  }
+}
+
+/* SVG curve: let CSS animate it */
+svg {
+  position: absolute;
+  width: 320px;
+}
+
+.right path {
+  transition: stroke-dashoffset 700ms ease-out, stroke-dasharray 700ms ease-out;
+  /* initial values set inline in JSX */
+}
+
+/* ----- form ----- */
+.form {
+  margin: 40px;
+  position: absolute;
+  width: calc(100% - 80px);
+}
+
+label {
+  color: #c2c2c5;
+  display: block;
+  font-size: 14px;
+  margin: 20px 0 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #c2c2c5;
+  color: #f2f2f2;
+  font-size: 20px;
+  height: 30px;
+  line-height: 30px;
+  outline: none !important;
+  width: 100%;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+  color: #aaa;
+}
+
+#submit {
+  background: transparent;
+  border: 1px solid #707075;
+  color: #707075;
+  font-size: 18px;
+  margin-top: 40px;
+  padding: 8px 0;
+  transition: color 300ms, border-color 300ms;
+  width: 100%;
+  cursor: pointer;
+}
+
+#submit:hover,
+#submit:focus {
+  color: #f2f2f2;
+  border-color: #f2f2f2;
+}
+
+#submit:active {
+  color: #d0d0d2;
+  border-color: #d0d0d2;
+}
+
+/* error message */
+.error {
+  color: crimson;
+  font-size: 14px;
+  margin-top: 12px;
+  text-align: center;
+}

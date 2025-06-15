@@ -1,0 +1,99 @@
+/* dark-theme variables (same palette as TaskList) */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+
+:root {
+  --blue:   rgba(79, 192, 210, 1);
+  --green:  rgba(82, 210, 154, 1);
+  --yellow: rgba(231, 196, 104, 0.7);
+  --orange: rgba(235, 118, 85, 1);
+  --red:    rgba(235, 85, 85, 1);
+  --dark-bg:  rgba(0, 0, 0, 0.9);
+  --light-bg: rgba(255, 255, 255, 0.08);
+  --text:     rgba(255, 255, 255, 0.9);
+}
+
+body {
+  /*background: var(--dark-bg);*/
+  font-family: "Open Sans", sans-serif;
+  color: var(--text);
+}
+
+/* outer shell */
+.chart-wrapper {
+  max-width: 600px;
+  margin: 24px auto 80px;
+  padding: 20px 0;
+  background: var(--light-bg);
+  border-radius: 6px;
+}
+
+/* heading */
+.chart-title {
+  margin: 0 20px 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--yellow);
+}
+
+/* table */
+.trend-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.trend-table thead th {
+  text-align: left;
+  padding: 12px 20px;
+  background: var(--dark-bg);
+  font-size: 14px;
+}
+
+.trend-table tbody td {
+  padding: 10px 20px;
+  font-size: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.trend-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.trend-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transition: background 0.2s ease-out;
+}
+
+/* mobile stacking */
+@media (max-width: 600px) {
+  .trend-table thead {
+    display: none;             /* hide header */
+  }
+
+  .trend-table,
+  .trend-table tbody,
+  .trend-table tr,
+  .trend-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .trend-table tr {
+    margin-bottom: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+  }
+
+  .trend-table td {
+    padding: 10px 16px;
+    position: relative;
+  }
+
+  /* pseudo-labels */
+  .trend-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    width: 80px;
+    display: inline-block;
+    color: var(--yellow);
+  }
+}

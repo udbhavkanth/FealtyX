@@ -1,0 +1,94 @@
+/* same palette & font as other components */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+
+:root {
+  --blue:   rgba(79, 192, 210, 1);
+  --green:  rgba(82, 210, 154, 1);
+  --yellow: rgba(231, 196, 104, 0.7);
+  --orange: rgba(235, 118, 85, 1);
+  --red:    rgba(235, 85, 85, 1);
+  --dark-bg:  rgba(0, 0, 0, 0.9);
+  --light-bg: rgba(255, 255, 255, 0.08);
+  --text:     rgba(255, 255, 255, 0.9);
+}
+
+body {
+  /*background: var(--dark-bg);*/
+  font-family: "Open Sans", sans-serif;
+  color: var(--text);
+}
+
+/* ───────────────────────────────────── */
+/*    Form shell                        */
+/* ───────────────────────────────────── */
+.task-form {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  background: var(--light-bg);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+/* first row (title + prio + button) */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+/* inputs */
+.title-input,
+.prio-select,
+.desc-area {
+  background: var(--dark-bg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  border-radius: 4px;
+  padding: 8px 10px;
+  font-size: 14px;
+  flex: 1;
+}
+
+.title-input {
+  min-width: 180px;
+}
+
+.prio-select {
+  width: 110px;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.desc-area {
+  width: 100%;
+  min-height: 70px;
+  resize: vertical;
+  font-size: 14px;
+}
+
+/* shared button class (re-uses palette) */
+.btn {
+  border: 1px solid transparent;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.green  { color: var(--green); }
+
+/* small-screen tweaks */
+@media (max-width: 500px) {
+  .row { flex-direction: column; }
+  .prio-select { width: 100%; }
+  .btn { width: 100%; text-align: center; }
+}
